@@ -803,4 +803,23 @@ div.a2a_full_footer {display:none;}
 		 height:280px !Important;
 	 }
  }
- 
+
+ /* Upadtes */
+ .text-xsmall {
+	font-size: 0.75rem;
+ }
+ .text-small {
+	font-size: 0.875rem;
+ }
+ .w-6 {
+	width: 1.5rem;
+ }
+ .h-6 {
+	height: 1.5rem;
+ }
+ .h-9 {
+	height: 2.5rem;
+ }
+ .border-dark-muted {
+	border-color: #777;
+ }

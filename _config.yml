@@ -1,7 +1,7 @@
 # Site
 name: 'Mundana'
 description: 'Mundana is a free Jekyll theme for awesome people like you, Medium like.'
-logo: 'assets/images/logo.png'
+logo: https://placehold.co/150x45 #'assets/images/logo.png'
 favicon: 'assets/images/favicon.ico'
 baseurl: ''
 disqus: 'demowebsite'
@@ -10,6 +10,13 @@ mailchimp-list: 'https://wowthemes.us11.list-manage.com/subscribe/post?u=8aeb20a
 
 include: ["_pages"]
 permalink: /:title/
+
+social:
+  twitter: "#"
+  facebook: "#"
+  instagram: "#"
+  github: "#"
+  dribbble: "#"
 
 # Plugins
 plugins: 
