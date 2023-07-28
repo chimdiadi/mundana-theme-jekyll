@@ -1,13 +1,13 @@
 ---
 layout: post
-title:  "Quick Start Guide"
+title:  "Quick Start Guide Dict"
 author: sal
 categories: [ Jekyll, tutorial ]
 image: assets/images/12.jpg
 date: 2023-07-19
 ---
 
-If you already have a full Ruby development environment with all headers and RubyGems installed (see Jekyll’s requirements), you can create a new Jekyll site by doing the following:
+If you already have a full Ruby development environment with all headers and RubyGems installed (see Jekyll’s requirements), you can create a new Jekyll site by doing the following: Peter
 
 ```ruby
 # Install Jekyll and Bundler gems through RubyGems

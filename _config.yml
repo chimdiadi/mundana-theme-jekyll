@@ -69,11 +69,11 @@ authors:
 collections:
   dictionary:
     output: true
-    permalink: /:name
+    permalink: /:collection/:name
 
   recipes:
     output: true
-    permalink: /:name
+    permalink: /:collection/:name
 
 # Defaults
 defaults:
