@@ -269,6 +269,13 @@ a.text-dark:hover {
 	height:35px;
 	border:1px solid #eee;
 }
+.bd-search-dict .form-control {
+	font-size:1.125rem;
+	color:#999;
+	border-radius:4px;
+	height:48px;
+	border:1px solid #eee;
+}
 .mb-2rem {
 	margin-bottom:2rem;
 }
@@ -826,4 +833,7 @@ div.a2a_full_footer {display:none;}
 
  .border-dark-muted {
 	border-color: #777;
+ }
+ .text-large {
+	font-size: 1.125rem;
  }
