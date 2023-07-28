@@ -11,6 +11,29 @@ mailchimp-list: 'https://wowthemes.us11.list-manage.com/subscribe/post?u=8aeb20a
 include: ["_pages"]
 permalink: /:title/
 
+pagination:
+  
+  # Site-wide kill switch, disabled here it doesn't run at all 
+  enabled: true
+
+  # Set to 'true' to enable pagination debugging. This can be enabled in the site config or only for individual pagination pages
+  debug: false
+
+  # The default document collection to paginate if nothing is specified ('posts' is default)
+  collection: 'posts'
+
+  # How many objects per paginated page, used to be `paginate` (default: 0, means all)
+  per_page: 10
+
+  # The permalink structure for the paginated pages (this can be any level deep)
+  permalink: '/page/:num/' # Pages are index.html inside this folder (default)
+  #permalink: '/page/:num.html' # Pages are simple html files 
+  #permalink: '/page/:num' # Pages are html files, linked jekyll extensionless permalink style.
+
+  # Optional the title format for the paginated pages (supports :title for original page title, :num for pagination page number, :max for total number of pages)
+  title: ':title - page :num'
+
+
 social:
   twitter: "#"
   facebook: "#"
@@ -22,7 +45,7 @@ social:
 plugins: 
   - jekyll-feed
   - jekyll-sitemap
-  - jekyll-paginate
+  - jekyll-paginate-v2
   - jekyll-seo-tag
   
 authors:
@@ -41,7 +64,17 @@ authors:
       bio:            "Blogger, fashionista, love to explore new ideas and write on my morning coffee!"
       email:          fakemail@gmail.com
       twitter:        https://twitter.com/wowthemesnet
- 
+
+
+collections:
+  dictionary:
+    output: true
+    permalink: /:name
+
+  recipes:
+    output: true
+    permalink: /:name
+
 # Defaults
 defaults:
 
@@ -58,15 +91,22 @@ defaults:
       path: "_pages"
     values:
       layout: page
-      
+
+  - scope:
+      path: ""
+      type: dictionary
+    values:
+      layout: dictionary
+
+  - scope:
+      path: ""
+      type: recipes
+    values:
+      layout: recipe
+
 # Syntax
 markdown: kramdown
 highlighter: rouge
-
-# Paginate
-paginate: 10
-
-
 
 # Exclude metadata and development time dependencies (like Grunt plugins)
 exclude: [README.markdown, package.json, grunt.js, Gruntfile.js, Gruntfile.coffee, node_modules]

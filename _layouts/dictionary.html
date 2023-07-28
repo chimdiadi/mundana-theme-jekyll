@@ -1,17 +1,15 @@
 ---
-title: "Mundana Free Jekyll Theme"
 layout: default
-pagination:
-  enabled: true
-description: "A great Jekyll theme developed by Sal @wowthemesnet."
 ---
 
 <div class="container">
   <!-- Begin post excerpts, let's highlight the first 4 posts on top -->
   <div class="row remove-site-content-margin">
 
+    {% assign dictionary = site.dictionary | reverse %}
+
     <!-- latest post -->
-    {% assign latest_post = site.posts[0] %}
+    {% assign latest_post = dictionary[0] %}
     <div class="col-md-6">
       <div class="card border-0 mb-4 box-shadow">
         <a href="{{site.baseurl}}{{latest_post.url}}">
@@ -47,7 +45,7 @@ description: "A great Jekyll theme developed by Sal @wowthemesnet."
     <div class="col-md-6">
 
       <!-- second latest post -->
-      {%- assign second_post = site.posts[1] -%}
+      {%- assign second_post = dictionary[1] -%}
       <div class="mb-3 d-flex align-items-center">
         {% if second_post.image %}
         <div class="col-md-4">
@@ -78,7 +76,7 @@ description: "A great Jekyll theme developed by Sal @wowthemesnet."
       </div>
 
       <!-- third latest post -->
-      {%- assign third_post = site.posts[2] -%}
+      {%- assign third_post = dictionary[2] -%}
       <div class="mb-3 d-flex align-items-center">
         {% if third_post.image %}
         <div class="col-md-4">
@@ -109,7 +107,7 @@ description: "A great Jekyll theme developed by Sal @wowthemesnet."
       </div>
 
       <!-- fourth latest post -->
-      {%- assign fourth_post = site.posts[3] -%}
+      {%- assign fourth_post = dictionary[3] -%}
       <div class="mb-3 d-flex align-items-center">
         {% if fourth_post.image %}
         <div class="col-md-4">
@@ -144,26 +142,28 @@ description: "A great Jekyll theme developed by Sal @wowthemesnet."
   </div>
 
   <!-- Sticky - add sticky tag to the post you want to highlight here - tags: [sticky] -->
-  {% for post in site.posts %}
-  {% if post.tags contains "sticky" %}
-  <div class="jumbotron jumbotron-fluid jumbotron-home pt-0 pb-0 mt-3 mb-2rem bg-lightblue position-relative">
-    <div class="pl-4 pr-0 h-100 tofront">
-      <div class="row justify-content-between">
-        <div class="col-md-6 pt-6 pb-6 pr-lg-4 align-self-center">
-          <h1 class="mb-3">{{post.title}}</h1>
-          <p class="mb-3 lead">
-            {{ post.excerpt | strip_html | strip_newlines | truncate: 136 }}
-          </p>
-          <a href="{{site.baseurl}}{{post.url}}" class="btn btn-dark">Read More</a>
-        </div>
-        <div class="col-md-6 d-none d-md-block pr-0"
-          style="background-size:cover;background-image:url({{site.baseurl}}/{{ post.image }});">
+  {% for post in site.dictionary %}
+    {% if post.tags contains "sticky" %}
+      <div class="jumbotron jumbotron-fluid jumbotron-home pt-0 pb-0 mt-3 mb-2rem bg-lightblue position-relative">
+        <div class="pl-4 pr-0 h-100 tofront">
+          <div class="row justify-content-between">
+            <div class="col-md-6 pt-6 pb-6 pr-lg-4 align-self-center">
+              <h1 class="mb-3">{{post.title}}</h1>
+              <p class="mb-3 lead">
+                {{ post.excerpt | strip_html | strip_newlines | truncate: 136 }}
+              </p>
+              <a href="{{site.baseurl}}{{post.url}}" class="btn btn-dark">Read More</a>
+            </div>
+            <div class="col-md-6 d-none d-md-block pr-0"
+              style="background-size:cover;background-image:url({{site.baseurl}}/{{ post.image }});">
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-  {% endif %}
+    {% endif %}
   {% endfor %}
+
+  <!--endif page url is / -->
 
   <!-- Now the rest of the posts with the usual loop but with an offset:4 on the first page so we can skeep the first 4 posts displayed above -->
 
@@ -185,8 +185,8 @@ description: "A great Jekyll theme developed by Sal @wowthemesnet."
         <ul class="pagination">
           {% if paginator.previous_page %}
           <li class="page-item"><a class="page-link"
-              href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&laquo; Prev</a>
-          </li>
+              href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&laquo;
+              Prev</a></li>
           {% else %}
           <li class="page-item disabled"><span class="prev page-link">&laquo;</span></li>
           {% endif %}
@@ -205,7 +205,8 @@ description: "A great Jekyll theme developed by Sal @wowthemesnet."
 
           {% if paginator.next_page %}
           <li class="page-item"><a class="page-link"
-              href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Next &raquo;</a></li>
+              href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Next
+              &raquo;</a></li>
           {% else %}
           <li class="page-item disabled"><span class="next page-link">&raquo;</span></li>
           {% endif %}
