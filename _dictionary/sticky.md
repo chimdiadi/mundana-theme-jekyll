@@ -1,7 +1,7 @@
 ---
 title:  "Some workd"
 spelling: brek-fuhst
-audio:
+audio: assets/audio/breakfast.mp3
 image: assets/images/11.jpg
 date: 2023-07-27
 
