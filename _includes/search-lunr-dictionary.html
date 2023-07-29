@@ -12,6 +12,7 @@ var documentsDictionary = [{% for page in site.dictionary %}{% if page.url conta
     "id": {{ counter }},
     "url": "{{ site.url }}{{site.baseurl}}{{ page.url }}",
     "title": "{{ page.title }}",
+    "types": "[{% for item in page.definitions %}{{ item.type }}{% unless forloop.last %}, {% endunless %}{% endfor %}]",
     "body": "{{ page.content | markdownify | replace: '.', '. ' | replace: '</h2>', ': ' | replace: '</h3>', ': ' | replace: '</h4>', ': ' | replace: '</p>', ' ' | strip_html | strip_newlines | replace: '  ', ' ' | replace: '"', ' ' }}"{% assign counter = counter | plus: 1 %}
     }, {% endif %}{% endfor %}];
 
@@ -37,15 +38,16 @@ function lunr_search_dictionary(term) {
         //put results on the screen.
         var results = idxDic.search(term);
         if(results.length>0){
-            //console.log(idxDic.search(term));
+            console.log(idxDic.search(term));
             //if results
             for (var i = 0; i < results.length; i++) {
                 // more statements
                 var ref = results[i]['ref'];
                 var url = documentsDictionary[ref]['url'];
                 var title = documentsDictionary[ref]['title'];
+                var types = documentsDictionary[ref]['types'];
                 var body = documentsDictionary[ref]['body'].substring(0,160)+'...';
-                document.querySelectorAll('#lunrresultsDictionary ul')[0].innerHTML = document.querySelectorAll('#lunrresultsDictionary ul')[0].innerHTML + "<li class='lunrsearchresultdictionary'><a href='" + url + "'><span class='title'>" + title + "</span><br /><small><span class='body'>"+ body +"</span><br /><span class='url'>"+ url +"</span></small></a></li>";
+                document.querySelectorAll('#lunrresultsDictionary ul')[0].innerHTML = document.querySelectorAll('#lunrresultsDictionary ul')[0].innerHTML + "<li class='lunrsearchresultdictionary'><a href='" + url + "'><span class='title'>" + title + "</span><br /><span class='text-uppercase text-small text-dark'>" + types + "</span><br /><small><span class='body'>"+ body +"</span></small></a></li>";
             }
         } else {
             document.querySelectorAll('#lunrresultsDictionary ul')[0].innerHTML = "<li class='lunrsearchresultdictionary'>Sorry, no results found. Close & try a different search!</li>";

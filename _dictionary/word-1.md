@@ -31,7 +31,6 @@ sentences:
 
 My husband will eat his breakfast during the class if he didn't have a chance before, during the segment where the instructor is talking.
 
-MISS MANNERS: PRACTICE SAYING ‘I’VE GOT IT, THANKS’ | JUDITH MARTIN, NICHOLAS MARTIN, JACOBINA MARTIN | FEBRUARY 12, 2021 | WASHINGTON POST
 The patients at the sanitarium loved it, and soon Corn Flakes would take over the entire country, changing the way America eats breakfast.
 
 THE STRANGE ORIGIN OF CORN FLAKES: LISTEN TO ‘THE FOOD THAT BUILT AMERICA’ | SEAN BRASWELL | FEBRUARY 11, 2021 | OZY
