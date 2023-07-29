@@ -1,10 +1,30 @@
 ---
-layout: post
 title:  "Could we reinvent the charm of old cities"
-author: jane
-categories: [ Jekyll, tutorial ]
-image: assets/images/home.jpg
-date: 2023-07-20
+spelling: brek-fuhst
+audio:
+image: assets/images/11.jpg
+date: 2023-07-27
+
+definitions:
+- type: noun
+  details: Some details
+  list:
+  - definition: "the first meal of the day; morning meal:"
+    example: A hearty breakfast was served at 7 a.m.
+  - definition: "the food eaten at the first meal of the day:"
+    example: a breakfast of bacon and eggs.
+- type: verb
+  details: Some details
+  list:
+  - definition: "to eat breakfast"
+    example: He breakfasted on bacon and eggs.
+  - definition: "to supply with breakfast"
+    example: We breakfasted the author in the finest restaurant.
+    
+sentences:
+  - My husband will eat his breakfast during the class if he didn't have a chance before, during the segment where the instructor is talking.
+  - The patients at the sanitarium loved it, and soon Corn Flakes would take over the entire country, changing the way America eats breakfast.
+  - If you’re on your own, or you favor small breakfasts, a two-slot toaster might serve you well.
 ---
 
 Bucharest’s history alternated periods of development and decline from the early settlements in antiquity until its consolidation as the national capital of Romania late in the 19th century. First mentioned as the “Citadel of București” in 1459, it became the residence of the famous Wallachian prince Vlad III the Impaler.

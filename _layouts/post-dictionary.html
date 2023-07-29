@@ -1,0 +1,102 @@
+---
+layout: default
+---
+
+<div class="container-lg pt-4 pb-4">
+	<div class="row justify-content-center">
+		<!-- Share -->
+		<div class="col-lg-2 pr-4 mb-4 col-md-12">
+			<div class="sticky-top sticky-top-offset text-center">
+				<div class="text-muted">
+					Share this
+				</div>
+				<div class="share d-inline-block">
+					<!-- AddToAny BEGIN -->
+					<div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+						<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+						<a class="a2a_button_facebook"></a>
+						<a class="a2a_button_twitter"></a>
+					</div>
+					<script async src="https://static.addtoany.com/menu/page.js"></script>
+					<!-- AddToAny END -->
+				</div>
+			</div>
+		</div>
+		<div class="col-md-12 col-lg-8">
+			<div class="d-flex align-items-center">
+				<h1 class="display-4 mb-2 article-headline">{{ page.title }}</h1>
+				<a href="#" class="link-dark ml-4" title="Play">
+					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-7 h-7">
+						<path stroke-linecap="round" stroke-linejoin="round" d="M19.114 5.636a9 9 0 010 12.728M16.463 8.288a5.25 5.25 0 010 7.424M6.75 8.25l4.72-4.72a.75.75 0 011.28.53v15.88a.75.75 0 01-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.01 9.01 0 012.25 12c0-.83.112-1.633.322-2.396C2.806 8.756 3.63 8.25 4.51 8.25H6.75z" />
+					</svg>
+				</a>
+				<a href="#" class="link-dark ml-2" title="Save">
+					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-7 h-7">
+						<path stroke-linecap="round" stroke-linejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0111.186 0z" />
+					</svg>
+				</a>
+			</div>
+			<p class="text-muted text-large mb-0">/ {{ page.spelling }} /</p>
+			{% if page.image %}
+				<img class="rounded mt-4 mb-5" src="{% if page.image contains "://" %}{{ page.image }}{% else %}{{ site.baseurl }}/{{ page.image }}{% endif %}" alt="{{ page.title }}">
+			{% else %}
+				<hr class="my-4">
+      {% endif %}
+			<div class="font-sans">
+				{% for item in page.definitions %}
+					<div class="mb-5">
+						<h3><i>{{ item.type }}</i></h3>
+						{% if item.details and item.details != empty %}
+							<p>{{ item.details }}</p>
+						{% endif %}
+						{% if item.list and item.list != empty %}
+							<ul class="border rounded p-4 pl-5">
+								{% for listItem in item.list %}
+									<li><strong>{{ listItem.definition }}:</strong> {{ listItem.example }}</li>
+								{% endfor %}
+							</ul>
+						{% endif %}
+					</div>
+				{% endfor %}
+			</div>
+			{% if page.sentences and page.sentences != empty %}
+				<h3 class="mb-4">{{ page.title }} in sentences</h3>
+				<div class="font-sans">
+					{% for item in page.sentences %}
+						<div class="font-sans mb-3">
+							{{ item }}
+						</div>
+					{% endfor %}
+				</div>
+			{% endif %}
+			<h3 class="mb-4 mt-5">More about {{ page.title }}</h3>
+			<div class="font-sans">
+				{{ content }}
+			</div>
+			<!-- Mailchimp Subscribe Form -->
+			{% if site.mailchimp-list %}
+			<div class="border p-5 bg-lightblue mt-5">
+				<div class="row justify-content-between">
+					<div class="col-md-6 mb-2 mb-md-0">
+						<h5 class="font-weight-bold">Join Newsletter</h5>
+						Get the latest news right in your inbox. We never spam!
+					</div>
+					<div class="col-md-6">
+						<div class="row">
+							<form action="{{site.mailchimp-list}}" method="post" name="mc-embedded-subscribe-form"
+								class="wj-contact-form validate w-100" target="_blank" novalidate>
+								<div class="mc-field-group">
+									<input type="email" placeholder="Enter e-mail address" name="EMAIL"
+										class="required email form-control w-100" id="mce-EMAIL" autocomplete="on" required>
+									<button type="submit" value="Subscribe" name="subscribe"
+										class="heart btn btn-success btn-block w-100 mt-2">Subscribe</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			{% endif %}
+		</div>
+	</div>
+</div>

@@ -96,13 +96,13 @@ defaults:
       path: ""
       type: dictionary
     values:
-      layout: dictionary
+      layout: post-dictionary
 
   - scope:
       path: ""
       type: recipes
     values:
-      layout: recipe
+      layout: post-recipe
 
 # Syntax
 markdown: kramdown

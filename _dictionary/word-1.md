@@ -3,18 +3,18 @@ title:  "Breakfast"
 spelling: brek-fuhst
 audio:
 image: assets/images/11.jpg
-date: 2023-07-27
+date: 2023-07-28
 
 definitions:
 - type: noun
-  details: Some details
+  details: Some details lorem ipsum dolorem
   list:
-  - definition: "the first meal of the day; morning meal:"
+  - definition: "the first meal of the day; morning meal"
     example: A hearty breakfast was served at 7 a.m.
-  - definition: "the food eaten at the first meal of the day:"
+  - definition: "the food eaten at the first meal of the day"
     example: a breakfast of bacon and eggs.
 - type: verb
-  details: Some details
+  details: Some details lorem ipsum dolorem
   list:
   - definition: "to eat breakfast"
     example: He breakfasted on bacon and eggs.
@@ -29,15 +29,10 @@ sentences:
 
 ---
 
-My husband will eat his breakfast during the class if he didn't have a chance before, during the segment where the instructor is talking.
+So how did the classical Latin become so incoherent? According to McClintock, a 15th century typesetter likely scrambled part of Cicero's De Finibus in order to provide placeholder text to mockup various fonts for a type specimen book.
 
-The patients at the sanitarium loved it, and soon Corn Flakes would take over the entire country, changing the way America eats breakfast.
+It's difficult to find examples of lorem ipsum in use before Letraset made it popular as a dummy text in the 1960s, although McClintock says he remembers coming across the lorem ipsum passage in a book of old metal type samples. So far he hasn't relocated where he once saw the passage, but the popularity of Cicero in the 15th century supports the theory that the filler text has been used for centuries.
 
-THE STRANGE ORIGIN OF CORN FLAKES: LISTEN TO ‘THE FOOD THAT BUILT AMERICA’ | SEAN BRASWELL | FEBRUARY 11, 2021 | OZY
-If you’re on your own, or you favor small breakfasts, a two-slot toaster might serve you well.
+So how did the classical Latin become so incoherent? According to McClintock, a 15th century typesetter likely scrambled part of Cicero's De Finibus in order to provide placeholder text to mockup various fonts for a type specimen book.
 
-BEST TOASTER: GET PERFECTLY GOLDEN SLICES EVERY TIME | POPSCI COMMERCE TEAM | FEBRUARY 10, 2021 | POPULAR-SCIENCE
-The quesadillas, above, have a similar protein-fat-carbs ratio to the breakfast burritos, making them a well-balanced choice for a midday ski meal.
-
-THESE ARE OUR EDITORS' GO-TO SKI LUNCHES | ULA CHROBAK | FEBRUARY 9, 2021 | OUTSIDE ONLINE
-There’d still be cappuccino and cornetto at the bar for breakfast, and, for lunch, plenty of pappardelle al ragù di cinghiale.
+It's difficult to find examples of lorem ipsum in use before Letraset made it popular as a dummy text in the 1960s, although McClintock says he remembers coming across the lorem ipsum passage in a book of old metal type samples. So far he hasn't relocated where he once saw the passage, but the popularity of Cicero in the 15th century supports the theory that the filler text has been used for centuries.
