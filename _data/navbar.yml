@@ -1,0 +1,15 @@
+---
+- text: Home
+  url: "/"
+- text: Dictionary
+  url: "/dictionary/"
+- text: Recipes
+  dropdown:
+  - text: Recipes featured
+    url: "#"
+  - text: Recipes all
+    url: "#"
+  - text: Recipes single
+    url: "#"
+- text: Contact
+  url: "/contact/"

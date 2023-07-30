@@ -35,7 +35,7 @@
 <body class="{% if page.url == "/" %} homefirstpage {% endif %}">
 
   <!-- Navbar -->
-  <nav id="MagicMenu" class="topnav navbar navbar-expand-lg navbar-light bg-white fixed-top">
+  <nav id="MagicMenu" class="topnav navbar navbar-expand-lg navbar-light bg-white fixed-top border-bottom">
     <div class="container">
       {% if site.logo %}
         <a href="{{ "/" | relative_url }}">
@@ -44,17 +44,43 @@
       {% else %}
         <span class="navbar-brand mr-2 mb-0"><strong>{{ site.title }}</strong></span>
       {% endif %}
-      <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarColor02"
-        aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="navbar-collapse collapse" id="navbarColor02" style="">
-        <div class="navbar-nav ml-auto d-flex align-items-center order-lg-2 my-3 my-lg-0">
+      <div class="navbar-collapse collapse" id="navbarNav">
+        <div class="navbar-nav ml-auto d-flex order-lg-2 mt-3 mb-2 my-lg-0">
           {% include search-lunr.html %}
         </div>
 
-        <ul class="navbar-nav mr-auto d-flex align-items-center">
-          {% include menu-header.html %}
+        <ul class="navbar-nav mr-auto d-flex">
+          {% for link in site.data.navbar %}
+            {% if link.url contains 'http' %}
+              {% assign domain = '' %}
+            {% else %}
+              {% assign domain = '' | relative_url %}
+            {% endif %}
+
+            {% if link.dropdown != null %}
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="dropdown-{{ link.text | slugify }}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ link.text }}</a>
+                <div class="dropdown-menu" aria-labelledby="dropdown-{{ link.text | slugify }}">
+                  {% for child in link.dropdown %}
+                    {% if child.url contains 'http' %}
+                      {% assign domain = '' %}
+                    {% else %}
+                      {% assign domain = '' | relative_url %}
+                    {% endif %}                    
+                    <a href="{{ domain }}{{ child.url }}" class="dropdown-item">{{ child.text }}</a>
+                  {% endfor %}
+                </div>
+              </li>
+            {% else %}
+              <li class="nav-item">
+                <a class="nav-link" href="{{ domain }}{{ link.url }}" {% if link.url contains 'http' %}target="_blank" rel="noopener" {% endif %}>{{ link.text }}</a>
+              </li>
+            {% endif %}
+          {% endfor %}            
         </ul>
       </div>
     </div>
