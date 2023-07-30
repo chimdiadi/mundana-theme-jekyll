@@ -470,7 +470,7 @@ a.text-dark:hover {
 	border-color:#03a87c;
 }
 .alert-success hr {
-	border-top-color:#038f6a;
+	border-top-color:#29bc94;
 }
 .alert-success .alert-link {
 	color:#e6e6e6;
@@ -847,9 +847,9 @@ div.a2a_full_footer {display:none;}
 	line-height: 1.86;
 	font-family: Lora;
 }
- .border-dark-muted {
+.border-dark-muted {
 	border-color: #777;
- }
- .text-large {
+}
+.text-large {
 	font-size: 1.125rem;
- }
+}

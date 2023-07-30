@@ -1,7 +1,7 @@
 # Site
 name: 'Mundana'
 description: 'Mundana is a free Jekyll theme for awesome people like you, Medium like.'
-logo: https://placehold.co/150x45 #'assets/images/logo.png'
+logo: https://placehold.co/130x35 #'assets/images/logo.png'
 favicon: 'assets/images/favicon.ico'
 baseurl: ''
 disqus: 'demowebsite'
@@ -33,7 +33,9 @@ pagination:
   # Optional the title format for the paginated pages (supports :title for original page title, :num for pagination page number, :max for total number of pages)
   title: ':title - page :num'
 
-
+privacy:
+  heading: Privacy Statement
+  copy: We use cookies to enhance your browsing experience and analyze site traffic. By continuing to use this site, you consent to the use of cookies, and you may choose to accept or decline them.
 social:
   twitter: "#"
   facebook: "#"

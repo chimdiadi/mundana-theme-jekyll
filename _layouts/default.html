@@ -39,7 +39,7 @@
     <div class="container">
       {% if site.logo %}
         <a href="{{ "/" | relative_url }}">
-          <img class="max-h-7 w-auto mr-3" src="{{ site.logo | absolute_url }}" width="173" height="28" alt="{{ site.title }}">
+          <img class="w-auto mr-3" src="{{ site.logo | absolute_url }}" width="130" height="35" alt="{{ site.title }}">
         </a>
       {% else %}
         <span class="navbar-brand mr-2 mb-0"><strong>{{ site.title }}</strong></span>
@@ -49,11 +49,12 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="navbar-collapse collapse" id="navbarColor02" style="">
+        <div class="navbar-nav ml-auto d-flex align-items-center order-lg-2 my-3 my-lg-0">
+          {% include search-lunr.html %}
+        </div>
+
         <ul class="navbar-nav mr-auto d-flex align-items-center">
           {% include menu-header.html %}
-        </ul>
-        <ul class="navbar-nav ml-auto d-flex align-items-center">
-          {% include search-lunr.html %}
         </ul>
       </div>
     </div>
@@ -91,7 +92,7 @@
         <div>
           {% if site.logo %}
             <a href="{{ "/" | relative_url }}">
-              <img class="max-h-7 w-auto" src="{{ site.logo | absolute_url }}" width="173" height="28" alt="{{ site.title }}">
+              <img class="w-auto" src="{{ site.logo | absolute_url }}" width="130" height="35" alt="{{ site.title }}">
             </a>
           {% else %}
             <span class="navbar-brand mr-2 mb-0"><strong>{{ site.title }}</strong></span>
@@ -140,6 +141,8 @@
       </div>
     </div>
   </footer>
+
+  {% include privacy.html %}
 
   {% include tracking-footer.html %}
 
