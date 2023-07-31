@@ -6,10 +6,10 @@
 - text: Recipes
   dropdown:
   - text: Recipes featured
-    url: "#"
+    url: "/recipes-featured/"
   - text: Recipes all
-    url: "#"
+    url: "/recipes/"
   - text: Recipes single
-    url: "#"
+    url: "/recipes/"
 - text: Contact
   url: "/contact/"

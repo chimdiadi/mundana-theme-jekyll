@@ -853,3 +853,9 @@ div.a2a_full_footer {display:none;}
 .text-large {
 	font-size: 1.125rem;
 }
+.tracking-md {
+	letter-spacing: 0.05em;
+}
+.font-weight-medium {
+	font-weight: 500;
+}
