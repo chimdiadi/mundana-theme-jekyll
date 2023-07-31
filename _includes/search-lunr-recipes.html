@@ -1,0 +1,72 @@
+
+<script>
+$(function() {
+    $("#lunrresultsRecipes").on('click', '#btnx', function () {
+        $('#lunrresultsRecipes').hide( 1000 );
+        $( "body" ).removeClass( "modal-open" );
+    });
+});
+    
+{% assign counter = 0 %}
+var documentsRecipes = [{% for page in site.recipes %}{% if page.url contains '.xml' or page.url contains 'assets' %}{% else %}{
+    "id": {{ counter }},
+    "url": "{{ site.url }}{{site.baseurl}}{{ page.url }}",
+    "title": "{{ page.title }}",
+    "types": "[{% for item in page.definitions %}{{ item.type }}{% unless forloop.last %}, {% endunless %}{% endfor %}]",
+    "body": "{{ page.content | markdownify | replace: '.', '. ' | replace: '</h2>', ': ' | replace: '</h3>', ': ' | replace: '</h4>', ': ' | replace: '</p>', ' ' | strip_html | strip_newlines | replace: '  ', ' ' | replace: '"', ' ' }}"{% assign counter = counter | plus: 1 %}
+    }, {% endif %}{% endfor %}];
+
+var idxRec = lunr(function () {
+    this.ref('id')
+    this.field('title')
+    this.field('body')
+
+    documentsRecipes.forEach(function (doc) {
+        this.add(doc)
+    }, this)
+});
+
+
+    
+function lunr_search_recipes(term) {
+    $('#lunrresultsRecipes').show( 1000 );
+    $( "body" ).addClass( "modal-open" );
+    
+    document.getElementById('lunrresultsRecipes').innerHTML = '<div id="resultsmodal" class="modal fade show d-block"  tabindex="-1" role="dialog" aria-labelledby="resultsmodal"> <div class="modal-dialog shadow-lg" role="document"> <div class="modal-content"> <div class="modal-header" id="modtitRec"> <button type="button" class="close" id="btnx" data-dismiss="modal" aria-label="Close"> &times; </button> </div> <div class="modal-body"> <ul class="mb-0"> </ul>    </div> <div class="modal-footer"><button id="btnx" type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button></div></div> </div></div>';
+    if(term) {
+        document.getElementById('modtitRec').innerHTML = "<h5 class='modal-title'>Search results for '" + term + "'</h5>" + document.getElementById('modtitRec').innerHTML;
+        //put results on the screen.
+        var results = idxRec.search(term);
+        if(results.length>0){
+            console.log(idxRec.search(term));
+            //if results
+            for (var i = 0; i < results.length; i++) {
+                // more statements
+                var ref = results[i]['ref'];
+                var url = documentsRecipes[ref]['url'];
+                var title = documentsRecipes[ref]['title'];
+                var types = documentsRecipes[ref]['types'];
+                var body = documentsRecipes[ref]['body'].substring(0,160)+'...';
+                document.querySelectorAll('#lunrresultsRecipes ul')[0].innerHTML = document.querySelectorAll('#lunrresultsRecipes ul')[0].innerHTML + "<li class='lunrsearchresultrecipes'><a href='" + url + "'><span class='title'>" + title + "</span><br /><span class='text-uppercase text-small text-dark'>" + types + "</span><br /><small><span class='body'>"+ body +"</span></small></a></li>";
+            }
+        } else {
+            document.querySelectorAll('#lunrresultsRecipes ul')[0].innerHTML = "<li class='lunrsearchresultrecipes'>Sorry, no results found. Close & try a different search!</li>";
+        }
+    }
+    return false;
+}
+</script>
+<style>
+    .lunrsearchresultrecipes .title {color: #d9230f;}
+    .lunrsearchresultrecipes .url {color: silver;}
+    .lunrsearchresultrecipes a {display: block; color: #777;}
+    .lunrsearchresultrecipes a:hover, .lunrsearchresultrecipes a:focus {text-decoration: none;}
+    .lunrsearchresultrecipes a:hover .title {text-decoration: underline;}
+</style>
+
+
+
+
+<form class="bd-search-rec" onSubmit="return lunr_search_recipes(document.getElementById('lunrsearchRecipes').value);">
+<input type="text" class="form-control text-large"  id="lunrsearchRecipes" name="q" value="" placeholder="Type keyword and enter..."> 
+</form>

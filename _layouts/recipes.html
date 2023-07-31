@@ -4,17 +4,33 @@ layout: default
 
 <div class="container">
   <div>
-    <h2 class="font-weight-bold spanborder h3"><span>All Recipes</span></h2>
+    <h1 class="font-weight-bold spanborder h3"><span>{{ page.title }}</span></h1>
+    {% if page.subtitle and page.subtitle != empty %}
+      <p class="text-muted mb-5">{{ page.subtitle }}min</p>
+    {% endif %}
   </div>
   <div class="row">
     <div class="col-12 col-lg-3">
       <div class="mb-4">
         <h4 class="font-weight-bold mb-3 h6">Search</h4>
-        {% include search-lunr-dictionary.html %}
+        {% include search-lunr-recipes.html %}
       </div>
       <div class="mb-4">
-        <h4 class="font-weight-bold mb-3 h6">Categories</h4>
-        
+        <h4 class="font-weight-bold mb-2 h6">Categories</h4>
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link text-muted py-1" href="{{ '/Recipes/' | relative_url }}">All meals</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-muted py-1" href="{{ '/meal/breakfast/' | relative_url }}">Breakfast</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-muted py-1" href="{{ '/meal/lunch/' | relative_url }}">Lunch</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-muted py-1" href="{{ '/meal/dinner/' | relative_url }}">Dinner</a>
+          </li>
+        </ul>
       </div>
     </div>
     <div class="col-12 col-lg-9">
@@ -27,39 +43,36 @@ layout: default
       </div>
     </div>
   </div>
-  <div class="row mt-3">
-    <div class="col-12">
-      <!-- Pagination links -->
-      {% if paginator.total_pages > 1 %}
-        <ul class="pagination">
-          {% if paginator.previous_page %}
-          <li class="page-item"><a class="page-link"
-              href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&laquo;
-              Prev</a></li>
-          {% else %}
-          <li class="page-item disabled"><span class="prev page-link">&laquo;</span></li>
-          {% endif %}
-          {% for page in (1..paginator.total_pages) %}
-          {% if page == paginator.page %}
-          <li class="page-item disabled"><span class="webjeda page-link">{{ page }}</span></li>
-          {% elsif page == 1 %}
-          <li class="page-item"><a class="page-link" href="{{site.baseurl}}/">{{ page }}</a></li>
-          {% else %}
-          <li class="page-item"><a class="page-link"
-              href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a>
-          </li>
-          {% endif %}
-          {% endfor %}
-          {% if paginator.next_page %}
-          <li class="page-item"><a class="page-link"
-              href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Next
-              &raquo;</a></li>
-          {% else %}
-          <li class="page-item disabled"><span class="next page-link">&raquo;</span></li>
-          {% endif %}
-        </ul>
-      {% endif %}
-    </div>
+  <div class="mt-3 d-flex justify-content-center">
+    {% if paginator.total_pages > 1 %}
+      <ul class="pagination">
+        {% if paginator.previous_page %}
+        <li class="page-item"><a class="page-link"
+            href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&laquo;
+            Prev</a></li>
+        {% else %}
+        <li class="page-item disabled"><span class="prev page-link">&laquo;</span></li>
+        {% endif %}
+        {% for page in (1..paginator.total_pages) %}
+        {% if page == paginator.page %}
+        <li class="page-item disabled"><span class="webjeda page-link">{{ page }}</span></li>
+        {% elsif page == 1 %}
+        <li class="page-item"><a class="page-link" href="{{site.baseurl}}/">{{ page }}</a></li>
+        {% else %}
+        <li class="page-item"><a class="page-link"
+            href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a>
+        </li>
+        {% endif %}
+        {% endfor %}
+        {% if paginator.next_page %}
+        <li class="page-item"><a class="page-link"
+            href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Next
+            &raquo;</a></li>
+        {% else %}
+        <li class="page-item disabled"><span class="next page-link">&raquo;</span></li>
+        {% endif %}
+      </ul>
+    {% endif %}
   </div>
 
 </div>

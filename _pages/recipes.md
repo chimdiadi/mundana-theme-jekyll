@@ -1,5 +1,6 @@
 ---
 title: "Recipes"
+subtitle: Subtitle lorem ipsum dolorem impsum
 layout: recipes
 permalink: /recipes/
 description: "A great recipes."

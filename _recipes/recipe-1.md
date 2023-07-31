@@ -1,13 +1,17 @@
 ---
 title:  "Chicken soup"
 subtitle: Some suntitle lorem ipsum dolorem
-meal: Lunch
+meal: 
+- lunch
 time: 25
 difficulty: easy
 image: assets/images/11.jpg
 date: 2023-07-28
 categories:
-tags:
+tags: 
+- lunch
+- breakfast
+- dinner
 
 ---
 
