@@ -1,35 +1,7 @@
 ---
 layout: default
 ---
-<a id="bookmarkme" href="#" title="bookmark this page">Bookmark This Page</a>
-<script>
-$("#bookmarkme").click(function () {
-  var url = 'http://' + location.host; // i'm in a sub-page and bookmarking the home page
-  var name = "Snir's Homepage";
 
-  if (navigator.userAgent.toLowerCase().indexOf('chrome') > -1){ //chrome
-    alert("In order to bookmark go to the homepage and press " 
-        + (navigator.userAgent.toLowerCase().indexOf('mac') != -1 ? 
-            'Command/Cmd' : 'CTRL') + "+D.")
-  } 
-  else if (window.sidebar) { // Mozilla Firefox Bookmark
-    //important for firefox to add bookmarks - remember to check out the checkbox on the popup
-    $(this).attr('rel', 'sidebar');
-    //set the appropriate attributes
-    $(this).attr('href', url);
-    $(this).attr('title', name);
-
-    //add bookmark:
-    //  window.sidebar.addPanel(name, url, '');
-    //  window.sidebar.addPanel(url, name, '');
-    window.sidebar.addPanel('', '', '');
-  } 
-  else if (window.external) { // IE Favorite
-        window.external.addFavorite(url, name);
-  } 
-  return;
-});
-</script>
 <div class="container-lg pt-4 pb-4">
 	<div class="row justify-content-center">
 		<!-- Share -->
@@ -52,7 +24,7 @@ $("#bookmarkme").click(function () {
 		</div>
 		<div class="col-md-12 col-lg-8">
 			<div class="d-flex align-items-center">
-				<h1 class="display-4 mb-2 article-headline">{{ page.title }}</h1>
+				<h1 class="display-4 mb-2 article-headline font-weight-bold">{{ page.title }}</h1>
 				{% if page.audio and page.audio != empty %}
 					<audio id="sound" src="{% if page.audio contains "http" %}{{ page.audio }}{% else %}{{ page.audio | relative_url }}{% endif %}" preload="auto"></audio>
 					<button type="button" class="link-dark ml-4 btn btn-link p-0" title="Play" onclick="document.getElementById('sound').play();">
@@ -76,12 +48,12 @@ $("#bookmarkme").click(function () {
 			<div class="font-sans">
 				{% for item in page.definitions %}
 					<div class="mb-5">
-						<h3><i>{{ item.type }}</i></h3>
+						<h3 class="font-weight-bold"><i>{{ item.type }}</i></h3>
 						{% if item.details and item.details != empty %}
 							<p>{{ item.details }}</p>
 						{% endif %}
 						{% if item.list and item.list != empty %}
-							<ul class="border rounded p-4 pl-5">
+							<ul class="border rounded-lg p-4 pl-5 bg-light">
 								{% for listItem in item.list %}
 									<li><strong>{{ listItem.definition }}:</strong> {{ listItem.example }}</li>
 								{% endfor %}
