@@ -1,6 +1,7 @@
 ---
 title:  Avocado toast with spinach, egg and goat cheese
 summary: Some summary lorem ipsum dolorem
+author: jane
 meal: 
 - lunch
 time: 25
