@@ -20,8 +20,10 @@
 		<h3 class="mb-1 h5 font-weight-bold">
 			<a class="text-dark" href="{{site.baseurl}}{{post.url}}">{{ post.title }}</a>
 		</h3>
-		<p class="text-small text-muted">
-			{{ post.subtitle }}
-		</p>
+		{% if post.summary and post.summary != empty %}
+			<p class="text-small text-muted">
+				{{ post.summary }}
+			</p>
+		{% endif %}	
 	</div>
 </div>
