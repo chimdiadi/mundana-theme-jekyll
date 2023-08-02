@@ -9,14 +9,13 @@ difficulty: easy
 serving: 1
 image: assets/images/11.jpg
 date: 2023-07-28
-categories:
+tags:
 - lunch
 - breakfast
 - dinner
-tags: 
-- lunch
-- breakfast
-- dinner
+categories: 
+- green
+- soup
 
 ingredients:
 - 2 pieces Chicken Breast 

@@ -15,23 +15,11 @@ layout: default
         <h4 class="font-weight-bold mb-3 h6">Search</h4>
         {% include search-lunr-recipes.html %}
       </div>
-      <div class="mb-4">
-        <h4 class="font-weight-bold mb-2 h6">Categories</h4>
-        <ul class="nav flex-column">
-          <li class="nav-item">
-            <a class="nav-link text-muted py-1" href="{{ '/Recipes/' | relative_url }}">All meals</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-muted py-1" href="{{ '/meal/breakfast/' | relative_url }}">Breakfast</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-muted py-1" href="{{ '/meal/lunch/' | relative_url }}">Lunch</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-muted py-1" href="{{ '/meal/dinner/' | relative_url }}">Dinner</a>
-          </li>
-        </ul>
-      </div>
+
+      {% include widget-tags.html %}
+
+      {% include widget-categories.html %}
+
     </div>
     <div class="col-12 col-lg-9">
       <div class="row main-loop">

@@ -5,9 +5,9 @@ audio: assets/audio/breakfast.mp3
 image: assets/images/11.jpg
 date: 2023-07-27
 
-tags:
-- breakfast
-- lunch
+categories:
+- popular
+- green
 ---
 
 If you already have a full Ruby development environment with all headers and RubyGems installed (see Jekyll’s requirements), you can create a new Jekyll site by doing the following: Peter
