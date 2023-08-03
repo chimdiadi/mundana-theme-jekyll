@@ -1,5 +1,5 @@
 ---
-title:  Avocado toast with spinach, egg and goat cheese
+title:  Chicken Breast with potatoes
 summary: Some summary lorem ipsum dolorem
 author: jane
 time: 25
@@ -11,7 +11,7 @@ tags:
 - lunch
 categories: 
 - green
-- soup
+- popular
 
 ingredients:
 - 2 pieces Chicken Breast 

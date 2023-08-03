@@ -5,18 +5,13 @@ layout: default
 <div class="container pt-4 pb-4">
 	<div class="row justify-content-center">
 		<div class="col-12 col-lg-9">
-			<h1 class="display-4 mb-2 article-headline font-weight-bold">{{ page.title }}</h1>
-			<small class="d-block text-muted mb-2">
-				<span class="catlist">
-				{% for category in page.categories %}
-				<a class="text-capitalize text-muted smoothscroll" href="{{site.baseurl}}/categories/{{ category | downcase }}">{{ category }}</a><span class="sep">, </span>
-				{% endfor %}
-				</span>
-			</small>
+			<h1 class="display-4 mb-3 article-headline font-weight-bold">{{ page.title }}</h1>
 			<div class="d-flex align-items-center text-xsmall text-uppercase font-weight-medium text-dark tracking-md mb-2">
-				{% if page.meal and page.meal != empty %}
-					<span>{{ page.meal }}</span>
-				{% endif %}
+				<span class="catlist">
+					{% for tag in page.tags %}
+					<a class="text-dark" href="{{site.baseurl}}/tags/{{ tag | downcase }}">{{ tag }}</a><span class="sep">, </span>
+					{% endfor %}
+				</span>
 				{% if page.time and page.time != empty %}
 				<span class="mx-2">&centerdot;</span><span>{{ page.time }}min</span>
 				{% endif %}
@@ -118,7 +113,7 @@ layout: default
 		<div class="col-12 col-lg-3">
 
 			{% assign author = site.authors[page.author] %}
-			<div class="d-flex align-items-center mb-4">
+			<div class="d-flex align-items-center mb-5">
 				{% if author.avatar %}
 				<img class="rounded-circle" src="{{ author.avatar | absolute_url }}" alt="{{author.name}}" width="70" />
 				{% endif %}
@@ -129,8 +124,8 @@ layout: default
 				</small>
 			</div>
 
-			<h4 class="text-muted h6">Share this</h4>
-			<div class="share d-inline-block mb-4">
+			<h4 class="mb-1 h5 font-weight-bold">Share this</h4>
+			<div class="share d-inline-block mb-5">
 				<!-- AddToAny BEGIN -->
 				<div class="a2a_kit a2a_kit_size_32 a2a_default_style d-flex">
 					<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
@@ -141,7 +136,7 @@ layout: default
 				<!-- AddToAny END -->
 			</div>
 
-			<h4 class="text-muted h6">Latest Recipes</h4>
+			<h4 class="mb-3 h5 font-weight-bold">Latest Recipes</h4>
 			{% assign recipes = site.recipes | reverse %}
 			{% for post in recipes limit:3 %}
 				{% include recipe-sidebar-card.html %}

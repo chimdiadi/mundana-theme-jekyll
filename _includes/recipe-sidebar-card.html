@@ -1,4 +1,4 @@
-<div class="mb-4 main-loop-card">
+<div class="mb-5 main-loop-card">
 	{% if post.image %}
 		<a class="mb-2 d-block" href="{{site.baseurl}}{{post.url}}">
 			<img class="w-100" src="{% if post.image contains "://" %}{{ post.image }}{% else %}{{ site.baseurl }}/{{ post.image }}{% endif %}" alt="{{ post.title }}">
@@ -6,7 +6,7 @@
 	{% endif %}
 
 	<div class="">
-		<h3 class="mb-1 h6 font-weight-bold">
+		<h3 class="mb-1 h5 font-weight-bold">
 			<a class="text-dark" href="{{site.baseurl}}{{post.url}}">{{ post.title }}</a>
 		</h3>
 		{% if post.summary and post.summary != empty %}

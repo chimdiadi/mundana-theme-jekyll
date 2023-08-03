@@ -7,9 +7,11 @@
 
 	<div class="">
 		<div class="d-flex align-items-center text-xsmall text-uppercase font-weight-medium text-dark tracking-md mb-2">
-			{% if post.meal and post.meal != empty %}
-				<span>{{ post.meal }}</span>
-			{% endif %}
+			<span class="catlist">
+				{% for tag in post.tags %}
+				<a class="text-dark" href="{{site.baseurl}}/tags/{{ tag | downcase }}">{{ tag }}</a><span class="sep">, </span>
+				{% endfor %}
+			</span>
 			{% if post.time and post.time != empty %}
 			<span class="mx-2">&centerdot;</span><span>{{ post.time }}min</span>
 			{% endif %}

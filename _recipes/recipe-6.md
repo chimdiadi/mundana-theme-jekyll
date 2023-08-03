@@ -1,17 +1,17 @@
 ---
-title:  Avocado toast with spinach, egg and goat cheese
+title:  Chicke roart with rice
 summary: Some summary lorem ipsum dolorem
 author: jane
-time: 25
-difficulty: easy
+time: 55
+difficulty: hard
 serving: 1
 image: assets/images/11.jpg
 date: 2023-07-28
 tags:
 - lunch
+- dinner
 categories: 
 - green
-- soup
 
 ingredients:
 - 2 pieces Chicken Breast 

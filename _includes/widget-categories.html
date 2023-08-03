@@ -1,6 +1,6 @@
 {% assign recipes_collection = site.collections | where: "label", "recipes" | first %}
-<h4 class="h6 mb-2">Categories</h4>
-<ul class="list-unstyled mb-4">
+<h4 class="h6 mb-2 font-weight-bold">Categories</h4>
+<ul class="list-unstyled mb-5">
   {% assign all_categories = "" | split: "," %}
   {% for item in recipes_collection.docs %}
     {% for item_category in item.categories %}

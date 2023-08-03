@@ -1,5 +1,5 @@
 ---
-title:  Avocado toast with spinach, egg and goat cheese
+title:  Lentil soupr with rice
 summary: Some summary lorem ipsum dolorem
 author: jane
 time: 25
@@ -8,10 +8,10 @@ serving: 1
 image: assets/images/11.jpg
 date: 2023-07-28
 tags:
-- lunch
+- dinner
 categories: 
-- green
 - soup
+- popular
 
 ingredients:
 - 2 pieces Chicken Breast 

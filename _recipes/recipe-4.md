@@ -1,17 +1,16 @@
 ---
-title:  Avocado toast with spinach, egg and goat cheese
+title:  Bacon oast with egg and goat cheese
 summary: Some summary lorem ipsum dolorem
 author: jane
-time: 25
-difficulty: easy
+time: 45
+difficulty: hard
 serving: 1
 image: assets/images/11.jpg
 date: 2023-07-28
 tags:
-- lunch
+- breakfast
 categories: 
 - green
-- soup
 
 ingredients:
 - 2 pieces Chicken Breast 
