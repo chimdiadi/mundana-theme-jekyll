@@ -47,7 +47,7 @@ function lunr_search_recipes(term) {
                 var title = documentsRecipes[ref]['title'];
                 var types = documentsRecipes[ref]['types'];
                 var body = documentsRecipes[ref]['body'].substring(0,160)+'...';
-                document.querySelectorAll('#lunrresultsRecipes ul')[0].innerHTML = document.querySelectorAll('#lunrresultsRecipes ul')[0].innerHTML + "<li class='lunrsearchresultrecipes'><a href='" + url + "'><span class='title'>" + title + "</span><br /><span class='text-uppercase text-small text-dark'>" + types + "</span><br /><small><span class='body'>"+ body +"</span></small></a></li>";
+                document.querySelectorAll('#lunrresultsRecipes ul')[0].innerHTML = document.querySelectorAll('#lunrresultsRecipes ul')[0].innerHTML + "<li class='lunrsearchresultrecipes'><a href='" + url + "'><span class='title'>" + title + "</span><br /><small><span class='body'>"+ body +"</span></small></a></li>";
             }
         } else {
             document.querySelectorAll('#lunrresultsRecipes ul')[0].innerHTML = "<li class='lunrsearchresultrecipes'>Sorry, no results found. Close & try a different search!</li>";

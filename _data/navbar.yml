@@ -5,11 +5,14 @@
   url: "/dictionary/"
 - text: Recipes
   dropdown:
-  - text: Recipes featured
-    url: "/recipes-featured/"
-  - text: Recipes all
+  - text: All Recipes
     url: "/recipes/"
-  - text: Recipes single
-    url: "/recipes/"
+  - text: Breakfast
+    url: "/tags/breakfast/"
+  - text: Lunch
+    url: "/tags/lunch/"
+  - text: Dinner
+    url: "/tags/dinner/"
 - text: Contact
   url: "/contact/"
+

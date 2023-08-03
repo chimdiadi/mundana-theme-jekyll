@@ -16,25 +16,11 @@ layout: default
       <p class="excerpt">
         {{ latest_post.excerpt | strip_html | strip_newlines | truncate: 136 }}
       </p>
-      <div>
-        <small class="d-block text-muted">
-          In <span class="catlist">
-            {% for category in latest_post.categories %}
-            <a class="text-capitalize text-muted smoothscroll"
-              href="{{site.baseurl}}/categories.html#{{ category | downcase }}">{{ category }}</a><span
-              class="sep">, </span>
-            {% endfor %}
-          </span>
-        </small>
-        <small class="text-muted">
-          {{ latest_post.date | date: '%b %d, %Y' }}
-        </small>
-      </div>
     </div>
   </div>
 
-  <div class="my-5">
-    <h4 class="font-weight-bold mb-3"><span>Search</span></h4>
+  <div class="mt-4 mb-5">
+    <h2 class="font-weight-bold mb-3 h3"><span>Search</span></h2>
     {% include search-lunr-dictionary.html %}
   </div>
 
@@ -42,7 +28,7 @@ layout: default
     <div class="col-12 main-loop">
       <h4 class="font-weight-bold spanborder"><span>All Dictionary</span></h4>
       {% for post in paginator.posts %}
-      {% include main-loop-card.html %}
+        {% include dictionary-loop-card.html %}
       {% endfor %}
       <div class="mt-5">
         <!-- Pagination links -->
