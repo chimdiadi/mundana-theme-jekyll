@@ -39,16 +39,20 @@ layout: default
 					<li class="list-group-item">{{ item }}</li>
 				{% endfor %}
 			</ul>
-			<div class="mt-5 d-flex flex-wrap">
-				<div class="col-12 col-lg px-3 pt-3 bg-lightblue">
-					<h2 class="h5 text-lg-left">Nutritional Information</h2>
-				</div>
-				{% for item in page.nutritional %}
-					<div class="col text-center py-3 bg-lightblue">
-						<h4 class="h5 mb-1">{{ item.type }}</h4>
-						<p class="">{{ item.value }}{{ item.unit }}</p>
+			<div class="mt-5 overflox-x-scroll bg-lightblue rounded">
+				<div class=" w-100">
+					<div class="px-3 pt-3">
+						<h2 class="h5 text-center m-0">Nutritional Information</h2>
 					</div>
-				{% endfor %}
+					<div class="d-flex bg-lightblue">
+						{% for item in page.nutritional %}
+							<div class="col text-center py-3">
+								<h4 class="h5 mb-1">{{ item.type }}</h4>
+								<p class="">{{ item.value }}{{ item.unit }}</p>
+							</div>
+						{% endfor %}
+					</div>
+				</div>
 			</div>
 
 			<h2 class="mt-5 mb-4 font-weight-bold">Instructions</h2>
