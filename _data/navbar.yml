@@ -2,6 +2,12 @@
 - text: Home
   url: "/"
 - text: Dictionary
+  dropdown:
+  - text: Dictionary Search
+    url: "/dictionary/"
+  - text: Dictionary Highlights
+    url: "/dictionary-highlights/"
+
   url: "/dictionary/"
 - text: Recipes
   dropdown:
