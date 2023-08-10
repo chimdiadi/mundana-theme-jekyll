@@ -906,5 +906,10 @@ div.a2a_full_footer {display:none;}
 	background-color: black;
 }
 .dictionary-search {
-	height: calc(100vh - 280px);
+	height: calc(100vh - 220px);
+}
+@media (min-width: 768px) {
+	.dictionary-search {
+		height: calc(100vh - 270px);
+	}
 }
