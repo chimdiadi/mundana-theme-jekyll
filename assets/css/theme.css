@@ -887,3 +887,24 @@ div.a2a_full_footer {display:none;}
 .overflox-x-scroll {
 	overflow-x: scroll;
 }
+
+.bg-img {
+	background-position: center;
+	background-size: cover;
+	width: 100%;
+	height: 100vh;
+	left: 0;
+	top: 0;
+	position: fixed;
+}
+.bg-overlay {
+	width: 100%;
+	height: 100vh;
+	left: 0;
+	top: 0;
+	position: fixed;
+	background-color: black;
+}
+.dictionary-search {
+	height: calc(100vh - 280px);
+}
