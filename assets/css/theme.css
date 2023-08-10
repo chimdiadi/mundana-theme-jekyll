@@ -689,7 +689,7 @@ article blockquote:before {
 	float:left;
 	line-height:1;
 }
-article:first-letter {
+.first-letter:first-letter {
 	float:left;
 	font-size:5em;
 	line-height:1;
@@ -748,6 +748,13 @@ article h1,article h2,article h3,article h4,article h5,article h6,article .h1,ar
 	}
 }
 @media (min-width:992px) {
+	.first-letter-lg:first-letter {
+		float:left;
+		font-size:5em;
+		line-height:1;
+		margin:0 .2em 0 0;
+		vertical-align:top;
+	}
 	.a2a_default_style a {
 		display:block !important;
 		float:none !important;

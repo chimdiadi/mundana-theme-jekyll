@@ -129,16 +129,7 @@ layout: default
 			</div>
 
 			<h4 class="mb-1 h5 font-weight-bold">Share this</h4>
-			<div class="share d-inline-block mb-5">
-				<!-- AddToAny BEGIN -->
-				<div class="a2a_kit a2a_kit_size_32 a2a_default_style d-flex">
-					<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
-					<a class="a2a_button_facebook ml-1"></a>
-					<a class="a2a_button_twitter ml-1"></a>
-				</div>
-				<script async src="https://static.addtoany.com/menu/page.js"></script>
-				<!-- AddToAny END -->
-			</div>
+			{% include share-horizontal.html %}
 
 			<h4 class="mb-3 h5 font-weight-bold">Latest Recipes</h4>
 			{% assign recipes = site.recipes | reverse %}

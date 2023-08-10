@@ -77,6 +77,10 @@ collections:
     output: true
     permalink: /:collection/:name
 
+  people:
+    output: true
+    permalink: /:collection/:name
+
 # Defaults
 defaults:
 
@@ -105,6 +109,12 @@ defaults:
       type: recipes
     values:
       layout: post-recipe
+
+  - scope:
+      path: ""
+      type: people
+    values:
+      layout: post-people      
 
 # Syntax
 markdown: kramdown
