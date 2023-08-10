@@ -1,6 +1,6 @@
 ---
 title: "Dictionary"
-layout: dictionary
+layout: dictionary-highlights
 permalink: /dictionary/
 description: "A great dictionary."
 pagination: 
