@@ -913,3 +913,14 @@ div.a2a_full_footer {display:none;}
 		height: calc(100vh - 270px);
 	}
 }
+.bd-search-dict input {
+	padding-right: 3rem;
+}
+.bd-search-dict a {
+	right: 0.75rem;
+	top: 0.625rem;
+	color: black;
+}
+.bd-search-dict a:hover {
+	color: #03a87c;;
+}

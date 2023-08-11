@@ -10,7 +10,14 @@ layout: default
 <div class="container container-sm position-relative">
 
   <div class="dictionary-search">
-    <h2 class="font-weight-bold mb-3 h3"><span>Search</span></h2>
+    {% if site.logo %}
+      <a class="mb-3 d-inline-block" href="{{ "/" | relative_url }}">
+        <img class="w-auto mr-3" src="{{ site.logo | absolute_url }}" width="130" height="35" alt="{{ site.title }}">
+      </a>
+    {% else %}
+      <span class="navbar-brand mr-2 mb-3"><strong>{{ site.title }}</strong></span>
+    {% endif %}
+
     {% include search-lunr-dictionary.html %}
   </div>
 
@@ -30,6 +37,6 @@ layout: default
   window.addEventListener("scroll", function () {
     let overlay = document.getElementById("overlay");    
     let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    overlay.style.opacity = 0 + scrollTop / 3000;
+    overlay.style.opacity = 0 + scrollTop / 2500;
   });
 </script>
