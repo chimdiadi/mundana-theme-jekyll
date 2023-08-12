@@ -927,3 +927,9 @@ div.a2a_full_footer {display:none;}
 .shadow-lg {
 	box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
 }
+.table-bordered th, .table-bordered td {
+	border-top-color: transparent !important;
+}
+.text-15 {
+	font-size: 0.9375rem;
+}

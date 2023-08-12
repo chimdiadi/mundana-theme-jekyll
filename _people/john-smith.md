@@ -12,6 +12,7 @@ quickfacts:
   details: John Doe
 - subject: Ocupation
   details: Racing car driver
+  header: true
 - subject: Team
   details: Redbull
 - subject: Win
