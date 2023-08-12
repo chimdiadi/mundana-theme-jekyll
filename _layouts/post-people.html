@@ -57,9 +57,9 @@ layout: default
 	  </div>
 
     <div class="col-12 col-lg-4 order-lg-last mb-4">
-      {% if page.summary and page.summary != empty %}
+      {% if page.intro and page.intro != empty %}
         <article class="article-post mb-3 d-lg-none first-letter">
-          {{ page.summary | markdownify }}
+          {{ page.intro | markdownify }}
         </article>
       {% endif %}	
       <table class="border rounded bg-light table-sm text-15">
@@ -92,9 +92,9 @@ layout: default
 
 	    <!-- Article -->
 	    <article class="article-post first-letter-lg">
-        {% if page.summary and page.summary != empty %}
+        {% if page.intro and page.intro != empty %}
           <div class="d-none d-lg-block">
-            {{ page.summary | markdownify }}
+            {{ page.intro | markdownify }}
           </div>
         {% endif %}	
 	      {{ content }}

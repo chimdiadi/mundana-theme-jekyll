@@ -19,6 +19,7 @@
     url: "/tags/lunch/"
   - text: Dinner
     url: "/tags/dinner/"
+- text: People
+  url: "/people/"
 - text: Contact
   url: "/contact/"
-

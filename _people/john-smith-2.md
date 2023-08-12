@@ -1,5 +1,5 @@
 ---
-title:  John Smith
+title:  Frederic Smith
 categories: [People]
 image: assets/images/home.jpg
 summary: This is some summary lorem appointed Greek administrators to run the town from century. 
