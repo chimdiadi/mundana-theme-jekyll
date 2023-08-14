@@ -933,3 +933,12 @@ div.a2a_full_footer {display:none;}
 .text-15 {
 	font-size: 0.9375rem;
 }
+.text-17 {
+	font-size: 1.0625rem;
+}
+.bg-gray-light {
+	background-color: #e1e1e1;
+}
+.border-dark {
+	border: 1px solid #bfbfbf !important;
+}

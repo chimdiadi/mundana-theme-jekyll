@@ -56,19 +56,19 @@ layout: default
 	    </div>
 	  </div>
 
-    <div class="col-12 col-lg-4 order-lg-last mb-4">
+    <div class="col-12 col-md-4 order-md-last mb-4">
       {% if page.intro and page.intro != empty %}
-        <article class="article-post mb-3 d-lg-none first-letter">
+        <article class="article-post mb-3 d-md-none first-letter">
           {{ page.intro | markdownify }}
         </article>
       {% endif %}	
-      <table class="border rounded bg-light table-sm text-15">
+      <table class="border-dark rounded bg-light table-sm text-15">
         <tbody>
           {% for item in page.quickfacts %}
-            <tr class="{% if item.header %}bg-lightblue text-center{% endif %}">
+            <tr class="{% if item.header %}px-2{% endif %}">
               {% if item.image %}
                 <td colspan="2">
-                  <div class="font-weight-bold mb-1 text-center">{{ item.subject }}</div>
+                  <div class="font-weight-bold mb-1 text-center text-17">{{ item.subject }}</div>
                   <div class="px-2">
                     <img class="w-100 rounded" src="{% if item.image contains "://" %}{{ item.image }}{% else %}{{ item.image | absolute_url }}{% endif %}" alt="{{ item.subject }}">
                   </div>
@@ -76,7 +76,11 @@ layout: default
                 </td>
               {% else %}
 								{% if item.header %}
-									<th scope="row" colspan="2">{{ item.subject }} {{ item.details }}</th>
+									<th scope="row" colspan="2">
+										<div class="{% if item.header %}bg-gray-light text-center mt-1{% endif %}">
+											{{ item.subject }} {{ item.details }}
+										</div>
+									</th>
 								{% else %}
 									<th scope="row">{{ item.subject }}</th>
 									<td>{{ item.details }}</td>
@@ -88,12 +92,12 @@ layout: default
       </table>
     </div>
 
-    <div class="col-12 col-lg-8">
+    <div class="col-12 col-md-8">
 
 	    <!-- Article -->
 	    <article class="article-post first-letter-lg">
         {% if page.intro and page.intro != empty %}
-          <div class="d-none d-lg-block">
+          <div class="d-none d-md-block">
             {{ page.intro | markdownify }}
           </div>
         {% endif %}	
