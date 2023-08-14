@@ -129,7 +129,9 @@ layout: default
 			</div>
 
 			<h4 class="mb-1 h5 font-weight-bold">Share this</h4>
-			{% include share-horizontal.html %}
+			<div class="mb-3">
+				{% include share-horizontal.html %}
+			</div>
 
 			<h4 class="mb-3 h5 font-weight-bold">Latest Recipes</h4>
 			{% assign recipes = site.recipes | reverse %}
