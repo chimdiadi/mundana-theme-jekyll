@@ -1,97 +1,183 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{{page.title}} | {{site.name}}</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>{{page.title}} | {{site.name}}</title>
 
-    {% seo %}
+  {% seo %}
 
-    <link rel="shortcut icon" type="image/x-icon" href="{{site.baseurl}}/{{site.favicon}}">
+  <link rel="shortcut icon" type="image/x-icon" href="{{site.baseurl}}/{{site.favicon}}">
 
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+    integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
-    <!-- Google Fonts-->
-    <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700" rel="stylesheet">
+  <!-- Google Fonts-->
+  <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700" rel="stylesheet">
 
-    <!-- Bootstrap Modified -->
-    <link rel="stylesheet" href="{{site.baseurl}}/assets/css/main.css">
+  <!-- Bootstrap Modified -->
+  <link rel="stylesheet" href="{{site.baseurl}}/assets/css/main.css">
 
-    <!-- Theme Stylesheet -->
-    <link rel="stylesheet" href="{{site.baseurl}}/assets/css/theme.css">
+  <!-- Theme Stylesheet -->
+  <link rel="stylesheet" href="{{site.baseurl}}/assets/css/theme.css">
 
-    <!-- Jquery on header to make sure everything works, the rest  of the scripts in footer for fast loading -->
-    <script
-    src="https://code.jquery.com/jquery-3.3.1.min.js"
-    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-    crossorigin="anonymous"></script>
+  <!-- Jquery on header to make sure everything works, the rest  of the scripts in footer for fast loading -->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 
-    {% include tracking-header.html %}
-
+  {% include tracking-header.html %}
 
 </head>
 
 <body class="{% if page.url == "/" %} homefirstpage {% endif %}">
 
-    <!-- Navbar -->
-    <nav id="MagicMenu" class="topnav navbar navbar-expand-lg navbar-light bg-white fixed-top">
+  {% unless page.layout == 'dictionary' %}
+  <!-- Navbar -->
+  <nav id="MagicMenu" class="topnav navbar navbar-expand-lg navbar-light bg-white fixed-top border-bottom">
     <div class="container">
-        <a class="navbar-brand" href="{{ site.baseurl }}/index.html"><strong>{{site.name}}</strong></a>
-        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+      {% if site.logo %}
+        <a href="{{ "/" | relative_url }}">
+          <img class="w-auto mr-3" src="{{ site.logo | absolute_url }}" width="130" height="35" alt="{{ site.title }}">
+        </a>
+      {% else %}
+        <span class="navbar-brand mr-2 mb-0"><strong>{{ site.title }}</strong></span>
+      {% endif %}
+      <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="navbar-collapse collapse" id="navbarColor02" style="">
-            <ul class="navbar-nav mr-auto d-flex align-items-center">
-               {% include menu-header.html %}
-            </ul>
-            <ul class="navbar-nav ml-auto d-flex align-items-center">
-                {% include search-lunr.html %}
-            </ul>
+      </button>
+      <div class="navbar-collapse collapse" id="navbarNav">
+        <div class="navbar-nav ml-auto d-flex order-lg-2 mt-3 mb-2 my-lg-0">
+          {% include search-lunr.html %}
         </div>
+
+        <ul class="navbar-nav mr-auto d-flex">
+          {% for link in site.data.navbar %}
+            {% if link.url contains 'http' %}
+              {% assign domain = '' %}
+            {% else %}
+              {% assign domain = '' | relative_url %}
+            {% endif %}
+
+            {% if link.dropdown != null %}
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="dropdown-{{ link.text | slugify }}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ link.text }}</a>
+                <div class="dropdown-menu" aria-labelledby="dropdown-{{ link.text | slugify }}">
+                  {% for child in link.dropdown %}
+                    {% if child.url contains 'http' %}
+                      {% assign domain = '' %}
+                    {% else %}
+                      {% assign domain = '' | relative_url %}
+                    {% endif %}                    
+                    <a href="{{ domain }}{{ child.url }}" class="dropdown-item">{{ child.text }}</a>
+                  {% endfor %}
+                </div>
+              </li>
+            {% else %}
+              <li class="nav-item">
+                <a class="nav-link" href="{{ domain }}{{ link.url }}" {% if link.url contains 'http' %}target="_blank" rel="noopener" {% endif %}>{{ link.text }}</a>
+              </li>
+            {% endif %}
+          {% endfor %}            
+        </ul>
+      </div>
     </div>
-    </nav>
+  </nav>
+  {% else %}
+    <script src="{{site.baseurl}}/assets/js/lunr.js"></script>
+  {% endunless %}
 
-    <!-- Search Results -->
-    <div id="lunrsearchresults">
-        <ul class="mb-0"></ul>
+  <!-- Search Results -->
+  <div id="lunrsearchresults">
+    <ul class="mb-0"></ul>
+  </div>
+  <div id="lunrresultsDictionary">
+    <ul class="mb-0"></ul>
+  </div>
+  <div id="lunrresultsRecipes">
+    <ul class="mb-0"></ul>
+  </div>
+
+  <!-- Content -->
+  <main role="main" class="site-content">
+    {{ content }}
+  </main>
+
+  <!-- Scripts: popper, bootstrap, theme, lunr -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+    integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous">
+  </script>
+
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+    integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous">
+  </script>
+
+  <script src="{{site.baseurl}}/assets/js/theme.js"></script>
+
+  <!-- Footer -->
+
+  <footer class="bg-dark pt-5 pb-4">
+    <div class="container">
+      <div class="d-flex align-items-center justify-content-between flex-wrap">
+        <div>
+          {% if site.logo %}
+            <a href="{{ "/" | relative_url }}">
+              <img class="w-auto" src="{{ site.logo | absolute_url }}" width="130" height="35" alt="{{ site.title }}">
+            </a>
+          {% else %}
+            <span class="navbar-brand mr-2 mb-0"><strong>{{ site.title }}</strong></span>
+          {% endif %}
+        </div>
+        <div class="d-flex flex-wrap">
+          {% include social-networks.html %}
+        </div>
+      </div>
+      <div class="mt-5">
+        <form action="{{site.mailchimp-list}}" method="post" name="mc-embedded-subscribe-form"
+        class="wj-contact-form validate w-100" target="_blank" novalidate>
+          <div class="form-row mc-field-group">
+            <div class="col-12 col-md-4 mb-2 mb-md-0">
+              <input type="email" name="EMAIL" class="required email form-control border-dark-muted bg-transparent h-9 text-center text-md-left text-white" id="mce-EMAIL" autocomplete="on" required placeholder="Your email">
+            </div>
+            <div class="col-12 col-md-auto">
+              <button type="submit" name="subscribe" class="btn btn-primary btn-block">Subscribe</button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <hr class="border-dark-muted my-5">
+      <div class="row">
+        {% for col in site.data.footer.menus %}
+          <div class="col-6 col-md">
+            <h5 class="text-white h6 mb-3">{{ col.heading }}</h5>
+            <ul class="list-unstyled text-small">
+              {% for item in col.links %}
+                <li>
+                  <a href="{{ item.url | relative_url }}" class="text-light"> {{ item.text }} </a>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+        {% endfor %}
+      </div>
+      <hr class="border-dark-muted mt-4 mb-4">
+      <div class="d-flex align-items-center justify-content-between flex-wrap text-light text-small">
+        <div>
+          <span>Copyright © <script>
+              document.write(new Date().getFullYear())
+            </script>.</span>
+        </div>
+        <div class="text-light">{{ site.data.footer.description | markdownify }}</div>
+      </div>
     </div>
+  </footer>
 
-    <!-- Content -->
-    <main role="main" class="site-content">
-        {{ content }}
-    </main>
+  {% include privacy.html %}
 
-
-    <!-- Scripts: popper, bootstrap, theme, lunr -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
-
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-
-    <script src="{{site.baseurl}}/assets/js/theme.js"></script>
-
-
-    <!-- Footer -->
-    <footer class="bg-white border-top p-3 text-muted small">
-        <div class="container">
-        <div class="row align-items-center justify-content-between">
-            <div>
-                <span class="navbar-brand mr-2 mb-0"><strong>Mundana</strong></span>
-                <span>Copyright © <script>document.write(new Date().getFullYear())</script>.</span>
-
-                <!--  Github Repo Star Btn-->
-                <a class="text-dark ml-1" target="_blank" href="https://github.com/wowthemesnet/mundana-theme-jekyll"><i class="fab fa-github"></i> Fork on Github</a>
-
-            </div>
-            <div>
-                Made with <a target="_blank" class="text-dark font-weight-bold" href="https://www.wowthemes.net/mundana-jekyll-theme/"> Mundana Jekyll Theme </a> by <a class="text-dark" target="_blank" href="https://www.wowthemes.net">WowThemes</a>.
-            </div>
-        </div>
-        </div>
-    </footer>
-
-    {% include tracking-footer.html %}
+  {% include tracking-footer.html %}
 
 </body>
 

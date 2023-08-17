@@ -1,0 +1,36 @@
+<div id="cookieBanner" class="position-fixed fixed-bottom bg-success" style="display: none;">
+  <div class="container">
+    <div class="alert alert-success mb-0 px-0 py-4 alert-dismissible fade show" role="alert">
+      <h5 class="alert-heading">{{ site.privacy.heading }}</h5>
+      <div class="col-lg-9 px-0 text-small">{{ site.privacy.copy | markdownify }}</div>
+      <hr class="border-success-light">
+      <button type="button" class="btn btn-sm btn-light" data-dismiss="alert" aria-label="Close">Decline</button>
+      <button type="button" class="btn btn-sm btn-dark" id="acceptButton">Accept</button>
+    </div>
+  </div>
+</div>
+<script>
+  console.log(localStorage.getItem('cookieConsent'))
+  function hideCookieBanner() {
+    document.getElementById('cookieBanner').style.display = 'none';
+  }
+
+  function showCookieBanner() {
+    document.getElementById('cookieBanner').style.display = 'block';
+  }
+
+  function saveConsentToLocalStorage() {
+    localStorage.setItem('cookieConsent', 'true');
+    hideCookieBanner();
+  }
+
+  function checkConsentAndDisplayBanner() {
+    const consent = localStorage.getItem('cookieConsent');
+    if (!consent || consent !== 'true') {
+      showCookieBanner();
+    }
+  }
+
+  document.getElementById('acceptButton').addEventListener('click', saveConsentToLocalStorage);
+  window.addEventListener('load', checkConsentAndDisplayBanner);
+</script>

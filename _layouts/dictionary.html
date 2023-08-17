@@ -1,0 +1,42 @@
+---
+layout: default
+---
+
+{% if page.background %}
+<div class="bg-img" style="background-image: url({% if page.background contains "://" %}{{ page.background }}{% else %}{{ page.background | absolute_url }}{% endif %});"></div>
+<div id="overlay" class="bg-overlay" style="opacity: 0;"></div>
+{% endif %}
+
+<div class="container container-sm position-relative">
+
+  <div class="dictionary-search">
+    {% if site.logo %}
+      <a class="mb-3 d-inline-block" href="{{ "/" | relative_url }}">
+        <img class="w-auto mr-3" src="{{ site.logo | absolute_url }}" width="130" height="35" alt="{{ site.title }}">
+      </a>
+    {% else %}
+      <span class="navbar-brand mr-2 mb-3"><strong>{{ site.title }}</strong></span>
+    {% endif %}
+
+    {% include search-lunr-dictionary.html %}
+  </div>
+
+  <div class="row mt-3">
+    <div class="col-12 main-loop">
+      {% assign dictionary = site.dictionary | reverse %}
+
+      {% for post in dictionary limit:4 %}
+        {% include dictionary-search-card.html %}
+      {% endfor %}
+    </div>
+  </div>
+
+</div>
+
+<script>
+  window.addEventListener("scroll", function () {
+    let overlay = document.getElementById("overlay");    
+    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    overlay.style.opacity = 0 + scrollTop / 2500;
+  });
+</script>

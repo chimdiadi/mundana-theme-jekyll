@@ -1,0 +1,25 @@
+---
+- text: Home
+  url: "/"
+- text: Dictionary
+  dropdown:
+  - text: Dictionary Search
+    url: "/dictionary/"
+  - text: Dictionary Highlights
+    url: "/dictionary-highlights/"
+
+  url: "/dictionary/"
+- text: Recipes
+  dropdown:
+  - text: All Recipes
+    url: "/recipes/"
+  - text: Breakfast
+    url: "/tags/breakfast/"
+  - text: Lunch
+    url: "/tags/lunch/"
+  - text: Dinner
+    url: "/tags/dinner/"
+- text: People
+  url: "/people/"
+- text: Contact
+  url: "/contact/"

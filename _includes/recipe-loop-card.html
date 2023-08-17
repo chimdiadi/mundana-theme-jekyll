@@ -1,0 +1,31 @@
+<div class="mb-5 main-loop-card">
+	{% if post.image %}
+		<a class="mb-3 d-block" href="{{site.baseurl}}{{post.url}}">
+			<img class="w-100" src="{% if post.image contains "://" %}{{ post.image }}{% else %}{{ site.baseurl }}/{{ post.image }}{% endif %}" alt="{{ post.title }}">
+		</a>
+	{% endif %}
+
+	<div class="">
+		<div class="d-flex align-items-center text-xsmall text-uppercase font-weight-medium text-dark tracking-md mb-2">
+			<span class="catlist">
+				{% for tag in post.tags %}
+				<a class="text-dark" href="{{site.baseurl}}/tags/{{ tag | downcase }}">{{ tag }}</a><span class="sep">, </span>
+				{% endfor %}
+			</span>
+			{% if post.time and post.time != empty %}
+			<span class="mx-2">&centerdot;</span><span>{{ post.time }}min</span>
+			{% endif %}
+			{% if post.difficulty and post.difficulty != empty %}
+			<span class="mx-2">&centerdot;</span><span>{{ post.difficulty }}</span>
+			{% endif %}			
+		</div>
+		<h3 class="mb-1 h5 font-weight-bold">
+			<a class="text-dark" href="{{site.baseurl}}{{post.url}}">{{ post.title }}</a>
+		</h3>
+		{% if post.summary and post.summary != empty %}
+			<p class="text-small text-muted">
+				{{ post.summary }}
+			</p>
+		{% endif %}	
+	</div>
+</div>

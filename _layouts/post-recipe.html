@@ -1,0 +1,149 @@
+---
+layout: default
+---
+
+<div class="container pt-4 pb-4">
+	<div class="row justify-content-center">
+		<div class="col-12 col-lg-9">
+			<h1 class="display-4 mb-3 article-headline">{{ page.title }}</h1>
+			<div class="d-flex align-items-center text-xsmall text-uppercase font-weight-medium text-dark tracking-md mb-2">
+				<span class="catlist">
+					{% for tag in page.tags %}
+					<a class="text-dark" href="{{site.baseurl}}/tags/{{ tag | downcase }}">{{ tag }}</a><span class="sep">, </span>
+					{% endfor %}
+				</span>
+				{% if page.time and page.time != empty %}
+				<span class="mx-2">&centerdot;</span><span>{{ page.time }}min</span>
+				{% endif %}
+				{% if page.difficulty and page.difficulty != empty %}
+				<span class="mx-2">&centerdot;</span><span>{{ page.difficulty }}</span>
+				{% endif %}			
+				{% if page.serving and page.serving != empty %}
+				<span class="mx-2">&centerdot;</span><span>Servings: {{ page.serving }}</span>
+				{% endif %}			
+			</div>
+			{% if page.image %}
+				<img class="rounded mt-4 mb-5" src="{% if page.image contains "http" %}{{ page.image }}{% else %}{{ page.image | relative_url }}{% endif %}" alt="{{ page.title }}">
+			{% else %}
+				<hr class="my-4">
+      {% endif %}
+			<div class="font-sans">
+				{{ content }}
+			</div>
+			<h2 class="mt-5 font-weight-bold">Ingredients</h2>
+			{% if page.serving and page.serving != empty %}
+				<h4 class="mt-3 mb-4 h6">Servings: {{ page.serving }}</h4>
+			{% endif %}	
+			<ul class="list-group list-group-flush">
+				{% for item in page.ingredients %}
+					<li class="list-group-item">{{ item }}</li>
+				{% endfor %}
+			</ul>
+			<div class="mt-5 overflox-x-scroll bg-lightblue rounded">
+				<div class=" w-100">
+					<div class="px-3 pt-3">
+						<h2 class="h5 text-center m-0">Nutritional Information</h2>
+					</div>
+					<div class="d-flex bg-lightblue">
+						{% for item in page.nutritional %}
+							<div class="col text-center py-3">
+								<h4 class="h5 mb-1">{{ item.type }}</h4>
+								<p class="">{{ item.value }}{{ item.unit }}</p>
+							</div>
+						{% endfor %}
+					</div>
+				</div>
+			</div>
+
+			<h2 class="mt-5 mb-4 font-weight-bold">Instructions</h2>
+			<div class="">
+				{% for item in page.instructions %}
+					<div class="d-flex mb-4">
+						<div class="mr-4">
+							<div class="h5 bg-lightblue d-flex justify-content-center align-items-center rounded-circle w-12 h-12 -mt-2">
+								<span>{{forloop.index }}</span>
+							</div>
+						</div>
+						<div>
+							<h3 class="font-weight-bold h4 mb-3">{{ item.heading }}</h3>
+							<div class="font-sans">{{ item.copy | markdownify }}</div>
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+			{% if page.notes and page.notes != empty %}
+				<h3 class="mt-5 mb-4">Notes</h3>
+				<ul class="font-sans">
+					{% for item in page.notes %}
+						<li class="font-sans mb-3">
+							{{ item }}
+						</li>
+					{% endfor %}
+					</ul>
+			{% endif %}
+			
+
+			<!-- Mailchimp Subscribe Form -->
+			{% if site.mailchimp-list %}
+			<div class="border p-5 bg-lightblue mt-5">
+				<div class="row justify-content-between">
+					<div class="col-md-6 mb-2 mb-md-0">
+						<h5 class="font-weight-bold">Join Newsletter</h5>
+						Get the latest news right in your inbox. We never spam!
+					</div>
+					<div class="col-md-6">
+						<div class="row">
+							<form action="{{site.mailchimp-list}}" method="post" name="mc-embedded-subscribe-form"
+								class="wj-contact-form validate w-100" target="_blank" novalidate>
+								<div class="mc-field-group">
+									<input type="email" placeholder="Enter e-mail address" name="EMAIL"
+										class="required email form-control w-100" id="mce-EMAIL" autocomplete="on" required>
+									<button type="submit" value="Subscribe" name="subscribe"
+										class="heart btn btn-success btn-block w-100 mt-2">Subscribe</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			{% endif %}
+
+			<!-- Comments -->
+			{% if page.comments != false %}
+				{% include comments.html %}
+			{% endif %}
+		</div>		
+
+		<div class="col-12 col-lg-3">
+
+			{% assign author = site.authors[page.author] %}
+			<div class="d-flex align-items-center mb-5">
+				{% if author.avatar %}
+				<img class="rounded-circle" src="{{ author.avatar | absolute_url }}" alt="{{author.name}}" width="70" />
+				{% endif %}
+				<small class="ml-3"> {{ author.name }} <span><a target="_blank" href="{{ author.twitter }}"
+					class="btn btn-outline-success btn-sm btn-round ml-1">Follow</a></span>
+					<span class="text-muted d-block mt-1">{{ page.date | date: '%b %d, %Y' }} ·
+						{% include meta-read-time.html %}</span>
+				</small>
+			</div>
+
+			<h4 class="mb-1 h5 font-weight-bold">Share this</h4>
+			<div class="mb-3">
+				{% include share-horizontal.html %}
+			</div>
+
+			<h4 class="mb-3 h5 font-weight-bold">Latest Recipes</h4>
+			{% assign recipes = site.recipes | reverse %}
+			{% for post in recipes limit:3 %}
+				{% include recipe-sidebar-card.html %}
+			{% endfor %}
+
+      {% include widget-tags.html %}
+
+      {% include widget-categories.html %}
+
+		</div>
+
+	</div>
+</div>

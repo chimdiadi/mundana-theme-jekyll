@@ -1065,7 +1065,7 @@ pre {
 
 .table-sm th,
 .table-sm td {
-  padding: 0.3rem; }
+  padding: 0.3rem 0.5rem; }
 
 .table-bordered {
   border: 1px solid #dee2e6; }
@@ -7197,7 +7197,7 @@ a.text-danger:hover, a.text-danger:focus {
   color: #d1154b !important; }
 
 .text-light {
-  color: #f8f9fa !important; }
+  color: #bbb !important; }
 
 a.text-light:hover, a.text-light:focus {
   color: #dae0e5 !important; }

@@ -1,0 +1,13 @@
+{% assign recipes_collection = site.collections | where: "label", "recipes" | first %}
+<h4 class="h6 mb-2 font-weight-bold">Meals</h4>
+<ul class="list-unstyled mb-5">
+  {% assign all_tags = "" | split: "," %}
+  {% for item in recipes_collection.docs %}
+    {% for item_tag in item.tags %}
+      {% unless all_tags contains item_tag %}
+        {% assign all_tags = all_tags | push: item_tag %}
+        <li><a class="{% if page.url contains item_tag %}{% else %}text-muted{% endif %}" href="{{ site.baseurl }}/tags/{{ item_tag | slugify }}">{{ item_tag | capitalize }}</a></li>
+      {% endunless %}
+    {% endfor %}
+  {% endfor %}
+</ul>

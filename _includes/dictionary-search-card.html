@@ -1,0 +1,19 @@
+<div class="mb-3 bg-white p-3 rounded">
+	<div class="row justify-content-between main-loop-card">
+		{% if post.image %}
+			<div class="col-md-3 text-right">
+				<a href="{{site.baseurl}}{{post.url}}">
+					<img class="img-fluid" src="{% if post.image contains "://" %}{{ post.image }}{% else %}{{ site.baseurl }}/{{ post.image }}{% endif %}" alt="{{ post.title }}">
+				</a>
+			</div>
+		{% endif %}
+		<div class="col-md-9 mt-3 mt-md-0 pl-md-0">
+			<h2 class="mb-1 h4 font-weight-bold">
+				<a class="text-dark" href="{{site.baseurl}}{{post.url}}">{{ post.title }}</a>
+			</h2>
+			<p class="excerpt m-0">
+				{{ post.excerpt  | strip_html | strip_newlines | truncate: 186}}
+			</p>
+		</div>
+	</div>
+</div>
