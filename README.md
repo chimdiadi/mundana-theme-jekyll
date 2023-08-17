@@ -37,6 +37,26 @@
 
 That's it! Soon I'll be merging your changes into the master branch of this project. You will get a notification email once the changes have been merged. Thank you for your contribution.
 
+### Jekyll & Ruby Installation Instructions
+
+    sudo apt-get update
+    sudo apt-get install ruby-full -y
+    sudo apt install curl g++ gcc autoconf automake bison libc6-dev
+    gpg --keyserver hkp://keyserver.ubuntu.com --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
+    curl -sSL https://get.rvm.io | bash -s stable
+    source ~/.rvm/scripts/rvm
+    rvm list known
+    rvm install ruby
+    rvm install ruby-3.1.4
+    rvm --default use ruby-3.1.4
+    ruby -v
+    
+### Package Installation & Host
+    gem install bundler
+    bundle install
+    bundle exec jekyll serve
+    bundle exec jekyll serve --host 0.0.0.0
+
 
 ### Copyright
 
