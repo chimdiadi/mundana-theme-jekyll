@@ -39,17 +39,17 @@ nutritional:
 
 instructions:
 - heading: Make the egg cream or substitute 3/4 to 1 cup bottled sauce
-  copy: |-
+  content: |-
     Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor in vid unt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et acc usam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus. In tota corpora sit.
 
     Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor in vid unt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et acc usam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus. In tota corpora sit.
 - heading: Mixing the ingredients together
-  copy: |-
+  content: |-
     Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor in vid unt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et acc usam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus. In tota corpora sit.
 
     Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor in vid unt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et acc usam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus. In tota corpora sit.
 - heading: Cook the chicken
-  copy: |-
+  content: |-
     Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor in vid unt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et acc usam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus. In tota corpora sit.
 
     Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor in vid unt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et acc usam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus. In tota corpora sit.
