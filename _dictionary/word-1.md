@@ -1,13 +1,13 @@
 ---
-title:  "Breakfast"
-spelling: brek-fuhst
+title:  "nnaam"
+spelling: n-nah-um
 audio: assets/audio/breakfast.mp3
-image: assets/images/11.jpg
+image: https://images.unsplash.com/photo-1605812830455-2fadc55bc4ba
 date: 2023-07-29
 
 definitions:
 - type: noun
-  details: Some details lorem ipsum dolorem
+  details: paternal relative of direct origin 
   list:
   - definition: "the first meal of the day; morning meal"
     example: A hearty breakfast was served at 7 a.m.
